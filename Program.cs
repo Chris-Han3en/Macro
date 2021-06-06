@@ -61,12 +61,6 @@ namespace Macro
             Console.WriteLine("enter the MS between each click");
             ClickPerMS = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine($"{ToggleBind} set as bind");
-
-            for (int i = 5; i != 0; i--)
-            {
-                Console.WriteLine($"cheats starting in {i}");
-                Thread.Sleep(1000);
-            }
             Thread bindChecker = new Thread(() => InitiateKeyPressLog());
             Thread clicker = new Thread(() => clickerPart.macroClicker());
             bindChecker.Start();
@@ -104,7 +98,6 @@ namespace Macro
                 {
                     Bindpressed = false;
                 }
-                Console.WriteLine((Keys)vkCode);
             }
             return CallNextHookEx(_hookID, nCode, wParam, lParam);
         }
